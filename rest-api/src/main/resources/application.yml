@@ -9,3 +9,7 @@ rest-api-2:
 #    pattern:
 #        level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
 #
+logging:
+    pattern:
+        correlation: "[%X{tenantId:-},%X{traceId:-},%X{spanId:-}] "
+    include-application-name: true
