@@ -20,6 +20,9 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public void handleMessage(Message message) {
         log.info("Handling message {}", message);
+        if ("THROW".equals(message.getTitle())) {
+            throw new RuntimeException("Wrong Message received>");
+        }
         this.restClient.post().uri( "/process-message").body(message).retrieve();
 
     }

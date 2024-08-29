@@ -11,5 +11,8 @@ rest-api-2:
 #
 logging:
     pattern:
-        correlation: "[%X{tenantId:-},%X{traceId:-},%X{spanId:-}] "
-    include-application-name: true
+#        correlation: "[%X{tenantId:-},%X{traceId:-},%X{spanId:-}] "
+#        level: "%5p [%X{tenantId:-}]"
+#        console: "%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd'T'HH:mm:ss.SSSXXX}} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
+        console: "%clr(%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}){faint} %clr(%5p) %clr([${spring.application.name}]){faint} %clr([%.15t]){faint} %clr([%X{tenantId:-},%X{traceId:-},%X{spanId:-}]){faint} %clr(%.40logger{39}){cyan} %clr(:){faint} %m%n%wEx"
+#    include-application-name: true
